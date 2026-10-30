@@ -4,26 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verso Criativo | Papelaria Personalizada & Brindes Corporativos</title>
+  <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
   <meta name="description" content="Papelaria personalizada para aniversários, mesversários, volta às aulas, Natal e brindes para empresas. Peça pelo WhatsApp e pague com link seguro InfinitePay." />
 
-  <!-- Tailwind CSS via CDN -->
+  <!-- Tailwind CSS via CDN com Configuração Oficial da Marca -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            vc: {
+              cyan: '#0088FF',
+              royal: '#2B3AE6',
+              purple: '#7B2CBF',
+              magenta: '#D82B87',
+              coral: '#F47B3E',
+              navy: '#0B224C'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Estilos da Identidade Visual Garantidos + Link para CSS Externo -->
+  <style>
+    .text-gradient-marca {
+      background: linear-gradient(90deg, #0088FF 0%, #2B3AE6 25%, #7B2CBF 50%, #D82B87 75%, #F47B3E 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      display: inline-block;
+    }
+    .bg-gradient-marca {
+      background: linear-gradient(90deg, #0088FF 0%, #2B3AE6 25%, #7B2CBF 50%, #D82B87 75%, #F47B3E 100%);
+    }
+    .border-gradient-marca {
+      background: linear-gradient(#ffffff, #ffffff) padding-box,
+                  linear-gradient(90deg, #0088FF, #2B3AE6, #7B2CBF, #D82B87, #F47B3E) border-box;
+      border: 2px solid transparent;
+    }
+  </style>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+
   <!-- Ícones Lucide -->
   <script src="https://unpkg.com/lucide@latest"></script>
-  <!-- Estilos Locais -->
-  <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-pink-600 selection:text-white">
+<body class="bg-slate-50 text-vc-navy antialiased selection:bg-vc-magenta selection:text-white">
 
-  <!-- Barra de Aviso no Topo -->
-  <div class="bg-slate-900 text-white text-xs py-2 px-4">
+  <!-- Barra de Aviso no Topo (Azul-Marinho Oficial #0B224C) -->
+  <div class="bg-vc-navy text-white text-xs py-2.5 px-4 border-b border-white/10">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="inline-block w-2 h-2 rounded-full bg-vc-cyan animate-pulse"></span>
         <span>Atendimento personalizado via WhatsApp • Prévia da arte para aprovação</span>
       </div>
-      <div class="hidden sm:flex items-center gap-4 text-slate-300">
-        <span class="flex items-center gap-1"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i> Pagamento via Link Seguro InfinitePay (Pix ou Cartão)</span>
+      <div class="hidden sm:flex items-center gap-4 text-slate-200">
+        <span class="flex items-center gap-1.5">
+          <i data-lucide="shield-check" class="w-4 h-4 text-vc-coral"></i>
+          Pagamento via Link Seguro InfinitePay (Pix ou Cartão)
+        </span>
       </div>
     </div>
   </div>
@@ -31,42 +73,50 @@
   <!-- Cabeçalho Fixo -->
   <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-pink-600 to-purple-600 flex items-center justify-center text-white shadow-md shadow-pink-200">
-          <i data-lucide="sparkles" class="w-6 h-6"></i>
-        </div>
+      
+      <!-- Logo Oficial Verso Criativo -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <img
+          src="./assets/img/logo-icone.jpg"
+          onerror="this.onerror=null; this.src='./assets/img/logo-icone.png';"
+          alt="Verso Criativo"
+          class="w-14 h-14 rounded-full object-cover shrink-0 bg-vc-navy shadow-sm"
+        />
         <div>
-          <span class="text-xl font-extrabold tracking-tight text-slate-900 block leading-none">Verso <span class="text-pink-600">Criativo</span></span>
-          <span class="text-[11px] font-medium text-slate-500 tracking-wider uppercase">Papelaria Personalizada</span>
+          <span class="text-2xl sm:text-[26px] font-extrabold tracking-tight text-gradient-marca block leading-none pb-0.5">
+            Verso Criativo
+          </span>
+          <span class="text-[10px] sm:text-[11px] font-bold text-vc-navy tracking-[0.22em] uppercase mt-0.5 block">
+            PAPELARIA PERSONALIZADA
+          </span>
         </div>
       </a>
 
       <!-- Busca Desktop -->
       <div class="hidden md:flex flex-1 max-w-md relative">
-        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+        <i data-lucide="search" class="w-4 h-4 text-vc-navy/50 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
         <input
           id="input-busca"
           type="search"
           placeholder="Buscar caixinhas, topo de bolo, etiquetas, adesivos..."
-          class="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-100 border border-transparent rounded-full focus:bg-white focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none transition"
+          class="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-100 border border-transparent rounded-full focus:bg-white focus:border-vc-purple focus:ring-2 focus:ring-vc-purple/20 outline-none transition text-vc-navy"
         />
       </div>
 
       <!-- Ações Direita -->
       <div class="flex items-center gap-3">
-        <a href="#secao-empresas" class="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-pink-600 px-3 py-2 rounded-full hover:bg-slate-100 transition">
-          <i data-lucide="briefcase" class="w-4 h-4 text-purple-600"></i>
+        <a href="#secao-empresas" class="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-vc-navy hover:text-vc-magenta px-3.5 py-2 rounded-full hover:bg-slate-100 transition">
+          <i data-lucide="briefcase" class="w-4 h-4 text-vc-purple"></i>
           Para Empresas
         </a>
 
         <button
           id="btn-abrir-carrinho"
-          class="relative inline-flex items-center gap-2.5 bg-pink-600 hover:bg-pink-700 text-white font-semibold text-sm px-4 py-2.5 rounded-full shadow-sm shadow-pink-200 transition active:scale-95"
+          class="relative inline-flex items-center gap-2.5 bg-gradient-marca hover:opacity-95 text-white font-bold text-sm px-5 py-2.5 rounded-full shadow-md shadow-vc-magenta/20 transition active:scale-95"
         >
           <i data-lucide="shopping-bag" class="w-4 h-4"></i>
           <span class="hidden sm:inline">Meu Pedido</span>
-          <span id="badge-carrinho" class="bg-white text-pink-600 text-xs font-extrabold px-2 py-0.5 rounded-full">0</span>
+          <span id="badge-carrinho" class="bg-vc-navy text-white text-xs font-extrabold px-2 py-0.5 rounded-full">0</span>
         </button>
       </div>
     </div>
@@ -74,72 +124,72 @@
     <!-- Busca Mobile -->
     <div class="md:hidden px-4 pb-3">
       <div class="relative">
-        <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+        <i data-lucide="search" class="w-4 h-4 text-vc-navy/50 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
         <input
           id="input-busca-mobile"
           type="search"
           placeholder="Buscar produtos personalizados..."
-          class="w-full pl-10 pr-4 py-2 text-sm bg-slate-100 rounded-full focus:bg-white focus:ring-2 focus:ring-pink-500 outline-none"
+          class="w-full pl-10 pr-4 py-2 text-sm bg-slate-100 rounded-full focus:bg-white focus:ring-2 focus:ring-vc-purple outline-none text-vc-navy"
         />
       </div>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-pink-50/70 via-white to-slate-50 pt-8 pb-10 border-b border-slate-200/70">
+  <section class="relative overflow-hidden bg-gradient-to-b from-sky-50/60 via-white to-slate-50 pt-8 pb-10 border-b border-slate-200/70">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-7 space-y-5">
-          <div class="inline-flex items-center gap-2 bg-pink-100 text-pink-700 text-xs font-bold px-3 py-1.5 rounded-full">
-            <i data-lucide="heart-handshake" class="w-3.5 h-3.5"></i>
-            Feito sob medida para momentos inesquecíveis e marcas de destaque
+          <div class="inline-flex items-center gap-2 bg-vc-navy/5 border border-vc-purple/20 text-vc-purple text-xs font-bold px-3.5 py-1.5 rounded-full">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-vc-magenta"></i>
+            Criatividade, modernidade e alto padrão de acabamento
           </div>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Papelaria afetiva e corporativa com <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600">acabamento impecável</span>.
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-vc-navy tracking-tight leading-tight">
+            Papelaria afetiva e corporativa com <span class="text-gradient-marca">identidade única</span>.
           </h1>
           <p class="text-slate-600 text-base sm:text-lg max-w-2xl">
-            Monte seu pedido online com o tema, nome ou logomarca da sua empresa. Você envia a lista pronta para o nosso WhatsApp, aprova a arte e paga com total segurança via Link InfinitePay.
+            Monte seu pedido online com o tema da festa, nome ou logomarca da sua empresa. Você envia a lista pronta para o nosso WhatsApp, aprova a arte e paga com total segurança via Link InfinitePay.
           </p>
           <div class="flex flex-wrap gap-3 pt-1">
-            <a href="#catalogo" class="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition">
+            <a href="#catalogo" class="inline-flex items-center gap-2 bg-vc-navy hover:bg-vc-royal text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition">
               Ver Catálogo de Produtos
-              <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+              <i data-lucide="arrow-down-right" class="w-4 h-4 text-vc-cyan"></i>
             </a>
-            <button id="btn-orcamento-rapido" class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition">
+            <button id="btn-orcamento-rapido" class="inline-flex items-center gap-2 bg-gradient-marca hover:opacity-95 text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
-              Falar no WhatsApp Agora
+              Atendimento no WhatsApp
             </button>
           </div>
         </div>
 
-        <!-- Destaques Rápidos -->
+        <!-- Destaques Rápidos com as Cores da Paleta -->
         <div class="lg:col-span-5 grid grid-cols-2 gap-3.5">
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
-            <div class="w-9 h-9 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center mb-3">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:border-vc-cyan transition">
+            <div class="w-10 h-10 rounded-xl bg-vc-cyan/10 text-vc-cyan flex items-center justify-center mb-3">
               <i data-lucide="party-popper" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-sm text-slate-900">Festas & Mesversário</h3>
+            <h3 class="font-bold text-sm text-vc-navy">Festas & Mesversário</h3>
             <p class="text-xs text-slate-500 mt-1">Caixinhas 3D, sacolinhas, topos de bolo e kits completos.</p>
           </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
-            <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-3">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:border-vc-purple transition">
+            <div class="w-10 h-10 rounded-xl bg-vc-purple/10 text-vc-purple flex items-center justify-center mb-3">
               <i data-lucide="building-2" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-sm text-slate-900">Para Empresas</h3>
+            <h3 class="font-bold text-sm text-vc-navy">Para Empresas</h3>
             <p class="text-xs text-slate-500 mt-1">Adesivos em recorte, sacolas, tags e calendários 2027.</p>
           </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
-            <div class="w-9 h-9 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center mb-3">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:border-vc-magenta transition">
+            <div class="w-10 h-10 rounded-xl bg-vc-magenta/10 text-vc-magenta flex items-center justify-center mb-3">
               <i data-lucide="backpack" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-sm text-slate-900">Volta às Aulas</h3>
+            <h3 class="font-bold text-sm text-vc-navy">Volta às Aulas</h3>
             <p class="text-xs text-slate-500 mt-1">Etiquetas escolares laváveis, tags de mochila e jogos.</p>
           </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm">
-            <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mb-3">
+          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:border-vc-coral transition">
+            <div class="w-10 h-10 rounded-xl bg-vc-coral/15 text-vc-coral flex items-center justify-center mb-3">
               <i data-lucide="gift" class="w-5 h-5"></i>
             </div>
-            <h3 class="font-bold text-sm text-slate-900">Especial de Natal</h3>
+            <h3 class="font-bold text-sm text-vc-navy">Especial de Natal</h3>
             <p class="text-xs text-slate-500 mt-1">Bolinhas com foto, caixas para panetone e topos festivos.</p>
           </div>
         </div>
@@ -148,30 +198,30 @@
       <!-- Régua de Confiança -->
       <div class="mt-8 pt-6 border-t border-slate-200/80 grid grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
         <div class="flex items-center gap-3">
-          <div class="p-2 rounded-lg bg-slate-100 text-slate-700"><i data-lucide="palette" class="w-4 h-4"></i></div>
+          <div class="p-2.5 rounded-xl bg-vc-cyan/10 text-vc-cyan"><i data-lucide="palette" class="w-4 h-4"></i></div>
           <div>
-            <strong class="block text-slate-900">1. Escolha e Personalize</strong>
+            <strong class="block text-vc-navy">1. Escolha e Personalize</strong>
             <span class="text-slate-500">Informe tema, nome ou logo</span>
           </div>
         </div>
         <div class="flex items-center gap-3">
-          <div class="p-2 rounded-lg bg-slate-100 text-slate-700"><i data-lucide="send" class="w-4 h-4"></i></div>
+          <div class="p-2.5 rounded-xl bg-vc-royal/10 text-vc-royal"><i data-lucide="send" class="w-4 h-4"></i></div>
           <div>
-            <strong class="block text-slate-900">2. Envie no WhatsApp</strong>
+            <strong class="block text-vc-navy">2. Envie no WhatsApp</strong>
             <span class="text-slate-500">Resumo pronto em 1 clique</span>
           </div>
         </div>
         <div class="flex items-center gap-3">
-          <div class="p-2 rounded-lg bg-slate-100 text-slate-700"><i data-lucide="credit-card" class="w-4 h-4"></i></div>
+          <div class="p-2.5 rounded-xl bg-vc-magenta/10 text-vc-magenta"><i data-lucide="credit-card" class="w-4 h-4"></i></div>
           <div>
-            <strong class="block text-slate-900">3. Link Seguro InfinitePay</strong>
+            <strong class="block text-vc-navy">3. Link Seguro InfinitePay</strong>
             <span class="text-slate-500">Pague no Pix ou Cartão sem risco</span>
           </div>
         </div>
         <div class="flex items-center gap-3">
-          <div class="p-2 rounded-lg bg-slate-100 text-slate-700"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
+          <div class="p-2.5 rounded-xl bg-vc-coral/15 text-vc-coral"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
           <div>
-            <strong class="block text-slate-900">4. Aprovação + Produção</strong>
+            <strong class="block text-vc-navy">4. Aprovação + Produção</strong>
             <span class="text-slate-500">Papel fotográfico 180g de alta definição</span>
           </div>
         </div>
@@ -183,25 +233,25 @@
   <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
       <div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Catálogo Personalizável</h2>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-vc-navy">Catálogo Personalizável</h2>
         <p class="text-sm text-slate-500 mt-1">Selecione um produto para escolher o acabamento e informar os dados da arte.</p>
       </div>
 
       <!-- Botões de Filtro por Categoria -->
       <div id="filtros-categoria" class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
-        <button data-categoria="todos" class="filtro-btn bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
+        <button data-categoria="todos" class="filtro-btn bg-vc-navy text-white text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition shadow-sm">
           Todos os Itens
         </button>
-        <button data-categoria="aniversario" class="filtro-btn bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
+        <button data-categoria="aniversario" class="filtro-btn bg-white text-vc-navy hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
           🎂 Aniversário & Mesversário
         </button>
-        <button data-categoria="empresas" class="filtro-btn bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
+        <button data-categoria="empresas" class="filtro-btn bg-white text-vc-navy hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
           🏢 Para Empresas
         </button>
-        <button data-categoria="volta-aulas" class="filtro-btn bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
+        <button data-categoria="volta-aulas" class="filtro-btn bg-white text-vc-navy hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
           🎒 Volta às Aulas
         </button>
-        <button data-categoria="natal" class="filtro-btn bg-white text-slate-700 hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
+        <button data-categoria="natal" class="filtro-btn bg-white text-vc-navy hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
           🎄 Especial Natal
         </button>
       </div>
@@ -211,25 +261,26 @@
     <div id="catalogo-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
   </main>
 
-  <!-- Seção Consultiva B2B (Inspirada na Versus Exp) -->
+  <!-- Seção Consultiva B2B (Fundo Azul-Marinho #0B224C + Degradê da Marca) -->
   <section id="secao-empresas" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-    <div class="bg-gradient-to-r from-slate-900 via-purple-950 to-slate-900 rounded-3xl p-8 sm:p-10 text-white shadow-xl">
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
+    <div class="relative overflow-hidden bg-vc-navy rounded-3xl p-8 sm:p-10 text-white shadow-xl border border-vc-royal/30">
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-gradient-marca opacity-20 blur-3xl pointer-events-none"></div>
+      <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-8 space-y-3">
-          <span class="inline-block bg-purple-500/20 border border-purple-400/30 text-purple-200 text-xs font-bold px-3 py-1 rounded-full">
+          <span class="inline-block bg-vc-cyan/20 border border-vc-cyan/40 text-vc-cyan text-xs font-bold px-3.5 py-1 rounded-full">
             Atendimento Corporativo • MEI e Empresas
           </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold">Precisa de um kit corporativo ou grandes quantidades para sua marca?</h2>
+          <h2 class="text-2xl sm:text-3xl font-extrabold">Precisa de papelaria corporativa ou kits exclusivos para sua marca?</h2>
           <p class="text-slate-300 text-sm sm:text-base max-w-2xl">
-            Produzimos adesivos em bobina/cartela, sacolas personalizadas, calendários de mesa e lembranças sazonais com condições especiais por volume.
+            Produzimos adesivos personalizados em recorte eletrônico, sacolas, tags e calendários de mesa 2027 com as cores da sua identidade visual.
           </p>
         </div>
         <div class="lg:col-span-4 flex lg:justify-end">
           <button
             id="btn-b2b-whatsapp"
-            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-slate-900 hover:bg-pink-50 font-extrabold text-sm px-6 py-4 rounded-2xl shadow-lg transition"
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-marca hover:opacity-95 text-white font-extrabold text-sm px-6 py-4 rounded-2xl shadow-lg transition"
           >
-            <i data-lucide="message-square-plus" class="w-4 h-4 text-pink-600"></i>
+            <i data-lucide="message-square-plus" class="w-4 h-4"></i>
             Solicitar Cotação Corporativa
           </button>
         </div>
@@ -238,42 +289,43 @@
   </section>
 
   <!-- Rodapé -->
-  <footer class="bg-white border-t border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <footer class="bg-vc-navy text-white border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <span class="text-lg font-extrabold text-slate-900">Verso <span class="text-pink-600">Criativo</span></span>
-          <p class="text-xs text-slate-500 mt-2 leading-relaxed">
-            Papelaria personalizada para festas, material escolar e papelaria corporativa. Não coletamos nem armazenamos dados de cartão de crédito neste site: todo pagamento é processado via Link Oficial InfinitePay.
+          <span class="text-2xl font-extrabold text-gradient-marca block leading-none pb-1">Verso Criativo</span>
+          <span class="text-[10px] font-bold text-slate-300 tracking-[0.22em] uppercase block mb-3">PAPELARIA PERSONALIZADA</span>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Produtos criativos, exclusivos e com alto padrão de acabamento. Não coletamos nem armazenamos dados de cartão de crédito neste site: todo pagamento é processado via Link Oficial InfinitePay.
           </p>
         </div>
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Nossas Redes Sociais</h4>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-vc-cyan mb-3">Nossas Redes Sociais</h4>
           <div class="flex flex-wrap gap-2 text-xs font-semibold">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-slate-100 hover:bg-pink-50 hover:text-pink-600 transition">Instagram</a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-slate-100 hover:bg-pink-50 hover:text-pink-600 transition">TikTok</a>
-            <a href="https://facebook.com" target="_blank" rel="noopener" class="px-3 py-2 rounded-lg bg-slate-100 hover:bg-pink-50 hover:text-pink-600 transition">Facebook</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-vc-magenta text-white transition">Instagram</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-vc-purple text-white transition">TikTok</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-vc-cyan text-white transition">Facebook</a>
           </div>
         </div>
         <div>
-          <h4 class="text-xs font-bold uppercase tracking-wider text-slate-900 mb-3">Meios de Pagamento</h4>
-          <p class="text-xs text-slate-500">
-            Pix à vista ou Cartão de Crédito via Link de Pagamento Seguro InfinitePay enviado após confirmação do seu pedido no WhatsApp.
+          <h4 class="text-xs font-bold uppercase tracking-wider text-vc-coral mb-3">Pagamento Seguro</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Pix à vista ou Cartão de Crédito via Link de Pagamento Seguro InfinitePay enviado após confirmação do seu pedido e prazo no WhatsApp.
           </p>
         </div>
       </div>
-      <div class="mt-8 pt-6 border-t border-slate-100 text-center text-xs text-slate-400">
+      <div class="mt-8 pt-6 border-t border-white/10 text-center text-xs text-slate-400">
         © 2026 Verso Criativo (versocriativo.com.br) • Todos os direitos reservados.
       </div>
     </div>
   </footer>
 
   <!-- MODAL DE PERSONALIZAÇÃO DO PRODUTO -->
-  <div id="modal-produto" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm modal-backdrop">
+  <div id="modal-produto" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-vc-navy/70 backdrop-blur-sm modal-backdrop">
     <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 animate-fadeIn">
       <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
-        <span id="modal-categoria" class="text-xs font-bold uppercase tracking-wider text-pink-600">Categoria</span>
-        <button id="btn-fechar-modal" class="p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100">
+        <span id="modal-categoria" class="text-xs font-bold uppercase tracking-wider text-vc-purple">Categoria</span>
+        <button id="btn-fechar-modal" class="p-1.5 rounded-full text-slate-400 hover:text-vc-navy hover:bg-slate-100">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
@@ -282,40 +334,40 @@
         <div class="flex gap-4 items-start">
           <img id="modal-imagem" src="" alt="" class="w-20 h-20 rounded-2xl object-cover border border-slate-200 shrink-0" />
           <div>
-            <h3 id="modal-titulo" class="font-extrabold text-slate-900 text-lg leading-snug"></h3>
-            <p id="modal-preco" class="text-pink-600 font-extrabold text-base mt-1"></p>
+            <h3 id="modal-titulo" class="font-extrabold text-vc-navy text-lg leading-snug"></h3>
+            <p id="modal-preco" class="text-vc-magenta font-extrabold text-base mt-1"></p>
           </div>
         </div>
 
         <p id="modal-descricao" class="text-xs text-slate-600 leading-relaxed"></p>
 
         <div>
-          <label for="select-opcao" class="block text-xs font-bold text-slate-700 mb-1.5">1. Escolha a variação / acabamento:</label>
-          <select id="select-opcao" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none"></select>
+          <label for="select-opcao" class="block text-xs font-bold text-vc-navy mb-1.5">1. Escolha a variação / acabamento:</label>
+          <select id="select-opcao" class="w-full rounded-xl border border-slate-300 px-3.5 py-2.5 text-sm text-vc-navy focus:border-vc-purple focus:ring-2 focus:ring-vc-purple/20 outline-none"></select>
         </div>
 
         <div>
-          <label for="input-briefing" class="block text-xs font-bold text-slate-700 mb-1.5">2. Dados para personalização (Nome, idade, tema ou @ da empresa):</label>
+          <label for="input-briefing" class="block text-xs font-bold text-vc-navy mb-1.5">2. Dados para personalização (Nome, idade, tema ou @ da empresa):</label>
           <textarea
             id="input-briefing"
             rows="3"
-            class="w-full rounded-xl border border-slate-300 p-3 text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-200 outline-none"
+            class="w-full rounded-xl border border-slate-300 p-3 text-sm text-vc-navy focus:border-vc-purple focus:ring-2 focus:ring-vc-purple/20 outline-none"
           ></textarea>
         </div>
 
         <div class="grid grid-cols-2 gap-4 items-center pt-1">
           <div>
-            <label for="input-quantidade" class="block text-xs font-bold text-slate-700 mb-1">Quantidade de kits/pacotes:</label>
+            <label for="input-quantidade" class="block text-xs font-bold text-vc-navy mb-1">Quantidade de kits/pacotes:</label>
             <input
               id="input-quantidade"
               type="number"
               min="1"
               value="1"
-              class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm font-bold focus:border-pink-500 outline-none"
+              class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm font-bold text-vc-navy focus:border-vc-purple outline-none"
             />
           </div>
           <label class="flex items-start gap-2 text-xs text-slate-600 cursor-pointer pt-4">
-            <input id="check-anexo" type="checkbox" class="mt-0.5 rounded text-pink-600 focus:ring-pink-500" />
+            <input id="check-anexo" type="checkbox" class="mt-0.5 rounded text-vc-magenta focus:ring-vc-purple" />
             <span>Vou enviar foto ou logomarca no WhatsApp</span>
           </label>
         </div>
@@ -325,7 +377,7 @@
         <button id="btn-cancelar-modal" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-200/60 transition">
           Cancelar
         </button>
-        <button id="btn-confirmar-item" class="inline-flex items-center gap-2 bg-pink-600 hover:bg-pink-700 text-white text-xs font-extrabold px-5 py-3 rounded-xl shadow-md transition">
+        <button id="btn-confirmar-item" class="inline-flex items-center gap-2 bg-gradient-marca hover:opacity-95 text-white text-xs font-extrabold px-5 py-3 rounded-xl shadow-md transition">
           <i data-lucide="plus-circle" class="w-4 h-4"></i>
           Adicionar ao Pedido
         </button>
@@ -335,14 +387,14 @@
 
   <!-- GAVETA LATERAL DO CARRINHO -->
   <div id="drawer-carrinho" class="fixed inset-0 z-50 hidden">
-    <div id="drawer-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+    <div id="drawer-overlay" class="fixed inset-0 bg-vc-navy/70 backdrop-blur-sm"></div>
     <aside class="fixed right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col z-10">
-      <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+      <div class="px-6 py-4 bg-vc-navy text-white flex items-center justify-between">
         <div>
-          <h3 class="font-extrabold text-slate-900 text-base">Seu Pedido Personalizado</h3>
-          <p class="text-[11px] text-slate-500">Confira os itens antes de enviar para o WhatsApp</p>
+          <h3 class="font-extrabold text-base">Seu Pedido Personalizado</h3>
+          <p class="text-[11px] text-slate-300">Confira os itens antes de enviar para o WhatsApp</p>
         </div>
-        <button id="btn-fechar-carrinho" class="p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100">
+        <button id="btn-fechar-carrinho" class="p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10">
           <i data-lucide="x" class="w-5 h-5"></i>
         </button>
       </div>
@@ -357,27 +409,27 @@
             id="cliente-nome"
             type="text"
             placeholder="Seu nome *"
-            class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs focus:border-pink-500 outline-none bg-white"
+            class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs text-vc-navy focus:border-vc-purple outline-none bg-white"
           />
           <input
             id="cliente-data-evento"
             type="text"
             placeholder="Data da festa / necessidade"
-            class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs focus:border-pink-500 outline-none bg-white"
+            class="w-full rounded-xl border border-slate-300 px-3 py-2 text-xs text-vc-navy focus:border-vc-purple outline-none bg-white"
           />
         </div>
 
         <div class="flex items-center justify-between text-sm">
           <span class="font-semibold text-slate-600">Total Estimado (sem frete):</span>
-          <strong id="valor-total-carrinho" class="text-lg font-extrabold text-slate-900">R$ 0,00</strong>
+          <strong id="valor-total-carrinho" class="text-lg font-extrabold text-vc-navy">R$ 0,00</strong>
         </div>
 
         <button
           id="btn-finalizar-whatsapp"
-          class="w-full inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm py-3.5 px-4 rounded-2xl shadow-lg shadow-emerald-200 transition"
+          class="w-full inline-flex items-center justify-center gap-2 bg-gradient-marca hover:opacity-95 text-white font-extrabold text-sm py-3.5 px-4 rounded-2xl shadow-lg transition"
         >
           <i data-lucide="send" class="w-4 h-4"></i>
-          Enviar Pedido no WhatsApp e Receber Link InfinitePay
+          Enviar Pedido no WhatsApp
         </button>
       </div>
     </aside>
