@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Verso Criativo | Papelaria Personalizada & Brindes Corporativos</title>
   <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
-  <meta name="description" content="Papelaria personalizada para aniversários, mesversários, volta às aulas, Natal e brindes para empresas. Peça pelo WhatsApp e pague com link seguro InfinitePay." />
+  <meta name="description" content="Papelaria personalizada para festas, linha PET, volta às aulas, Natal e brindes para empresas. Peça pelo WhatsApp e pague com link seguro InfinitePay." />
 
   <!-- Tailwind CSS via CDN com Configuração Oficial da Marca -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,11 +41,6 @@
     .bg-gradient-marca {
       background: linear-gradient(90deg, #0088FF 0%, #2B3AE6 25%, #7B2CBF 50%, #D82B87 75%, #F47B3E 100%);
     }
-    .border-gradient-marca {
-      background: linear-gradient(#ffffff, #ffffff) padding-box,
-                  linear-gradient(90deg, #0088FF, #2B3AE6, #7B2CBF, #D82B87, #F47B3E) border-box;
-      border: 2px solid transparent;
-    }
   </style>
   <link rel="stylesheet" href="./assets/css/styles.css" />
 
@@ -54,7 +49,7 @@
 </head>
 <body class="bg-slate-50 text-vc-navy antialiased selection:bg-vc-magenta selection:text-white">
 
-  <!-- Barra de Aviso no Topo (Azul-Marinho Oficial #0B224C) -->
+  <!-- Barra de Aviso no Topo -->
   <div class="bg-vc-navy text-white text-xs py-2.5 px-4 border-b border-white/10">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
@@ -98,17 +93,20 @@
         <input
           id="input-busca"
           type="search"
-          placeholder="Buscar caixinhas, topo de bolo, etiquetas, adesivos..."
+          placeholder="Buscar tema, caixinhas, kit pet, etiquetas..."
           class="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-100 border border-transparent rounded-full focus:bg-white focus:border-vc-purple focus:ring-2 focus:ring-vc-purple/20 outline-none transition text-vc-navy"
         />
       </div>
 
       <!-- Ações Direita -->
       <div class="flex items-center gap-3">
-        <a href="#secao-empresas" class="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-vc-navy hover:text-vc-magenta px-3.5 py-2 rounded-full hover:bg-slate-100 transition">
+        <button
+          onclick="irParaCategoria('empresas')"
+          class="hidden lg:inline-flex items-center gap-1.5 text-xs font-bold text-vc-navy hover:text-vc-magenta px-3.5 py-2 rounded-full hover:bg-slate-100 transition"
+        >
           <i data-lucide="briefcase" class="w-4 h-4 text-vc-purple"></i>
           Para Empresas
-        </a>
+        </button>
 
         <button
           id="btn-abrir-carrinho"
@@ -128,151 +126,139 @@
         <input
           id="input-busca-mobile"
           type="search"
-          placeholder="Buscar produtos personalizados..."
+          placeholder="Buscar em todas as categorias..."
           class="w-full pl-10 pr-4 py-2 text-sm bg-slate-100 rounded-full focus:bg-white focus:ring-2 focus:ring-vc-purple outline-none text-vc-navy"
         />
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-sky-50/60 via-white to-slate-50 pt-8 pb-10 border-b border-slate-200/70">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 space-y-5">
-          <div class="inline-flex items-center gap-2 bg-vc-navy/5 border border-vc-purple/20 text-vc-purple text-xs font-bold px-3.5 py-1.5 rounded-full">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-vc-magenta"></i>
-            Criatividade, modernidade e alto padrão de acabamento
-          </div>
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-vc-navy tracking-tight leading-tight">
-            Papelaria afetiva e corporativa com <span class="text-gradient-marca">identidade única</span>.
-          </h1>
-          <p class="text-slate-600 text-base sm:text-lg max-w-2xl">
-            Monte seu pedido online com o tema da festa, nome ou logomarca da sua empresa. Você envia a lista pronta para o nosso WhatsApp, aprova a arte e paga com total segurança via Link InfinitePay.
-          </p>
-          <div class="flex flex-wrap gap-3 pt-1">
-            <a href="#catalogo" class="inline-flex items-center gap-2 bg-vc-navy hover:bg-vc-royal text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition">
-              Ver Catálogo de Produtos
-              <i data-lucide="arrow-down-right" class="w-4 h-4 text-vc-cyan"></i>
-            </a>
-            <button id="btn-orcamento-rapido" class="inline-flex items-center gap-2 bg-gradient-marca hover:opacity-95 text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-md transition">
-              <i data-lucide="message-circle" class="w-4 h-4"></i>
-              Atendimento no WhatsApp
-            </button>
-          </div>
-        </div>
+  <!-- CARROSSEL DE BANNERS PROMOCIONAIS -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+    <div
+      id="hero-carousel"
+      class="relative rounded-3xl overflow-hidden shadow-xl bg-vc-navy min-h-[340px] sm:min-h-[380px] flex items-center"
+    >
+      <!-- Container dos Slides renderizado pelo app.js -->
+      <div id="carousel-slides" class="w-full"></div>
 
-        <!-- Destaques Rápidos com as Cores da Paleta -->
-        <div class="lg:col-span-5 grid grid-cols-2 gap-3.5">
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:border-vc-cyan transition">
-            <div class="w-10 h-10 rounded-xl bg-vc-cyan/10 text-vc-cyan flex items-center justify-center mb-3">
-              <i data-lucide="party-popper" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-bold text-sm text-vc-navy">Festas & Mesversário</h3>
-            <p class="text-xs text-slate-500 mt-1">Caixinhas 3D, sacolinhas, topos de bolo e kits completos.</p>
-          </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:border-vc-purple transition">
-            <div class="w-10 h-10 rounded-xl bg-vc-purple/10 text-vc-purple flex items-center justify-center mb-3">
-              <i data-lucide="building-2" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-bold text-sm text-vc-navy">Para Empresas</h3>
-            <p class="text-xs text-slate-500 mt-1">Adesivos em recorte, sacolas, tags e calendários 2027.</p>
-          </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:border-vc-magenta transition">
-            <div class="w-10 h-10 rounded-xl bg-vc-magenta/10 text-vc-magenta flex items-center justify-center mb-3">
-              <i data-lucide="backpack" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-bold text-sm text-vc-navy">Volta às Aulas</h3>
-            <p class="text-xs text-slate-500 mt-1">Etiquetas escolares laváveis, tags de mochila e jogos.</p>
-          </div>
-          <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm hover:border-vc-coral transition">
-            <div class="w-10 h-10 rounded-xl bg-vc-coral/15 text-vc-coral flex items-center justify-center mb-3">
-              <i data-lucide="gift" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-bold text-sm text-vc-navy">Especial de Natal</h3>
-            <p class="text-xs text-slate-500 mt-1">Bolinhas com foto, caixas para panetone e topos festivos.</p>
-          </div>
+      <!-- Setas Laterais -->
+      <button
+        id="carousel-prev"
+        aria-label="Banner anterior"
+        class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 backdrop-blur text-white flex items-center justify-center transition"
+      >
+        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+      </button>
+      <button
+        id="carousel-next"
+        aria-label="Próximo banner"
+        class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/15 hover:bg-white/30 backdrop-blur text-white flex items-center justify-center transition"
+      >
+        <i data-lucide="chevron-right" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Indicadores (Bolinhas) -->
+      <div id="carousel-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2"></div>
+    </div>
+
+    <!-- Régua de Confiança Compacta -->
+    <div class="mt-6 bg-white rounded-2xl p-4 border border-slate-200/80 shadow-sm grid grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 rounded-xl bg-vc-cyan/10 text-vc-cyan shrink-0"><i data-lucide="palette" class="w-4 h-4"></i></div>
+        <div>
+          <strong class="block text-vc-navy">1. Escolha a Categoria</strong>
+          <span class="text-slate-500">Navegue sem bagunça por tema</span>
         </div>
       </div>
-
-      <!-- Régua de Confiança -->
-      <div class="mt-8 pt-6 border-t border-slate-200/80 grid grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
-        <div class="flex items-center gap-3">
-          <div class="p-2.5 rounded-xl bg-vc-cyan/10 text-vc-cyan"><i data-lucide="palette" class="w-4 h-4"></i></div>
-          <div>
-            <strong class="block text-vc-navy">1. Escolha e Personalize</strong>
-            <span class="text-slate-500">Informe tema, nome ou logo</span>
-          </div>
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 rounded-xl bg-vc-royal/10 text-vc-royal shrink-0"><i data-lucide="send" class="w-4 h-4"></i></div>
+        <div>
+          <strong class="block text-vc-navy">2. Envie no WhatsApp</strong>
+          <span class="text-slate-500">Resumo pronto em 1 clique</span>
         </div>
-        <div class="flex items-center gap-3">
-          <div class="p-2.5 rounded-xl bg-vc-royal/10 text-vc-royal"><i data-lucide="send" class="w-4 h-4"></i></div>
-          <div>
-            <strong class="block text-vc-navy">2. Envie no WhatsApp</strong>
-            <span class="text-slate-500">Resumo pronto em 1 clique</span>
-          </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 rounded-xl bg-vc-magenta/10 text-vc-magenta shrink-0"><i data-lucide="credit-card" class="w-4 h-4"></i></div>
+        <div>
+          <strong class="block text-vc-navy">3. Link Seguro InfinitePay</strong>
+          <span class="text-slate-500">Pix ou Cartão sem risco</span>
         </div>
-        <div class="flex items-center gap-3">
-          <div class="p-2.5 rounded-xl bg-vc-magenta/10 text-vc-magenta"><i data-lucide="credit-card" class="w-4 h-4"></i></div>
-          <div>
-            <strong class="block text-vc-navy">3. Link Seguro InfinitePay</strong>
-            <span class="text-slate-500">Pague no Pix ou Cartão sem risco</span>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <div class="p-2.5 rounded-xl bg-vc-coral/15 text-vc-coral"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
-          <div>
-            <strong class="block text-vc-navy">4. Aprovação + Produção</strong>
-            <span class="text-slate-500">Papel fotográfico 180g de alta definição</span>
-          </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="p-2.5 rounded-xl bg-vc-coral/15 text-vc-coral shrink-0"><i data-lucide="check-circle-2" class="w-4 h-4"></i></div>
+        <div>
+          <strong class="block text-vc-navy">4. Aprovação + Produção</strong>
+          <span class="text-slate-500">Papel fotográfico 180g Glossy</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Catálogo Principal -->
-  <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+  <!-- CATÁLOGO ORGANIZADO POR CATEGORIAS E SUBTEMAS -->
+  <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="text-center max-w-2xl mx-auto mb-6">
+      <span class="text-xs font-extrabold uppercase tracking-widest text-vc-purple">Vitrine Organizada</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-vc-navy mt-1">Escolha um Departamento</h2>
+      <p class="text-xs sm:text-sm text-slate-500 mt-1">
+        Selecione a categoria desejada abaixo para ver apenas os produtos e temas correspondentes.
+      </p>
+    </div>
+
+    <!-- ABAS PRINCIPAIS DE DEPARTAMENTO (5 Categorias + Ver Tudo opcional) -->
+    <div id="filtros-categoria" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 mb-6">
+      <button data-categoria="festas" class="filtro-btn flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-extrabold transition">
+        <span>🎂</span> Festas
+      </button>
+      <button data-categoria="pets" class="filtro-btn flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-extrabold transition">
+        <span>🐾</span> PETs
+      </button>
+      <button data-categoria="volta-aulas" class="filtro-btn flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-extrabold transition">
+        <span>🎒</span> Volta às Aulas
+      </button>
+      <button data-categoria="empresas" class="filtro-btn flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-extrabold transition">
+        <span>🏢</span> Empresas
+      </button>
+      <button data-categoria="natal" class="filtro-btn flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-extrabold transition">
+        <span>🎄</span> Natal
+      </button>
+      <button data-categoria="todos" class="filtro-btn flex items-center justify-center gap-2 py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-extrabold transition">
+        <span>✨</span> Ver Tudo
+      </button>
+    </div>
+
+    <!-- Cabeçalho da Categoria Ativa + Subfiltros de Temas -->
+    <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/80 shadow-sm mb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
       <div>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-vc-navy">Catálogo Personalizável</h2>
-        <p class="text-sm text-slate-500 mt-1">Selecione um produto para escolher o acabamento e informar os dados da arte.</p>
+        <div class="flex items-center gap-2">
+          <h3 id="titulo-categoria-ativa" class="text-lg font-extrabold text-vc-navy">🎂 Festas & Mesversário</h3>
+          <span id="contador-produtos" class="text-[11px] font-extrabold bg-vc-purple/10 text-vc-purple px-2.5 py-0.5 rounded-full">0 itens</span>
+        </div>
+        <p id="descricao-categoria-ativa" class="text-xs text-slate-500 mt-0.5">
+          Kits completos, caixinhas 3D, sacolinhas e topos de bolo personalizados com qualquer tema.
+        </p>
       </div>
 
-      <!-- Botões de Filtro por Categoria -->
-      <div id="filtros-categoria" class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
-        <button data-categoria="todos" class="filtro-btn bg-vc-navy text-white text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition shadow-sm">
-          Todos os Itens
-        </button>
-        <button data-categoria="aniversario" class="filtro-btn bg-white text-vc-navy hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
-          🎂 Aniversário & Mesversário
-        </button>
-        <button data-categoria="empresas" class="filtro-btn bg-white text-vc-navy hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
-          🏢 Para Empresas
-        </button>
-        <button data-categoria="volta-aulas" class="filtro-btn bg-white text-vc-navy hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
-          🎒 Volta às Aulas
-        </button>
-        <button data-categoria="natal" class="filtro-btn bg-white text-vc-navy hover:bg-slate-100 border border-slate-200 text-xs font-bold px-4 py-2.5 rounded-full whitespace-nowrap transition">
-          🎄 Especial Natal
-        </button>
-      </div>
+      <!-- Pílulas de Subtemas (Geradas dinamicamente pelo app.js) -->
+      <div id="subfiltros-container" class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0"></div>
     </div>
 
     <!-- Grade de Produtos Renderizada via app.js -->
     <div id="catalogo-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"></div>
   </main>
 
-  <!-- Seção Consultiva B2B (Fundo Azul-Marinho #0B224C + Degradê da Marca) -->
-  <section id="secao-empresas" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+  <!-- Seção Consultiva B2B -->
+  <section id="secao-empresas" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-4">
     <div class="relative overflow-hidden bg-vc-navy rounded-3xl p-8 sm:p-10 text-white shadow-xl border border-vc-royal/30">
       <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-gradient-marca opacity-20 blur-3xl pointer-events-none"></div>
       <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-8 space-y-3">
           <span class="inline-block bg-vc-cyan/20 border border-vc-cyan/40 text-vc-cyan text-xs font-bold px-3.5 py-1 rounded-full">
-            Atendimento Corporativo • MEI e Empresas
+            Atendimento Corporativo & Temas Exclusivos
           </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold">Precisa de papelaria corporativa ou kits exclusivos para sua marca?</h2>
+          <h2 class="text-2xl sm:text-3xl font-extrabold">Não encontrou o tema da festa ou precisa de um kit para sua empresa?</h2>
           <p class="text-slate-300 text-sm sm:text-base max-w-2xl">
-            Produzimos adesivos personalizados em recorte eletrônico, sacolas, tags e calendários de mesa 2027 com as cores da sua identidade visual.
+            Desenvolvemos artes do zero em qualquer tema infantil, adulto, linha Pet Shop ou corporativo. Chame no WhatsApp e montamos seu orçamento personalizado.
           </p>
         </div>
         <div class="lg:col-span-4 flex lg:justify-end">
@@ -281,7 +267,7 @@
             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-marca hover:opacity-95 text-white font-extrabold text-sm px-6 py-4 rounded-2xl shadow-lg transition"
           >
             <i data-lucide="message-square-plus" class="w-4 h-4"></i>
-            Solicitar Cotação Corporativa
+            Pedir Tema ou Cotação no WhatsApp
           </button>
         </div>
       </div>
@@ -347,7 +333,7 @@
         </div>
 
         <div>
-          <label for="input-briefing" class="block text-xs font-bold text-vc-navy mb-1.5">2. Dados para personalização (Nome, idade, tema ou @ da empresa):</label>
+          <label for="input-briefing" class="block text-xs font-bold text-vc-navy mb-1.5">2. Dados para personalização (Nome, idade, tema, Pet ou @ da empresa):</label>
           <textarea
             id="input-briefing"
             rows="3"
