@@ -6,7 +6,7 @@ const CONFIG = {
   nomeLoja: "Verso Criativo",
   dominio: "versocriativo.com.br",
   chaveStorage: "verso_criativo_carrinho_v1",
-  tempoCarrosselMs: 3000
+  tempoCarrosselMs: 5000
 };
 
 // Banners Promocionais do Carrossel Inicial
